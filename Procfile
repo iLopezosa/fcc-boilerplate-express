@@ -1,1 +1,1 @@
-web: npm install dotenv --save; npm install; npm start
+web: npm install; npm start
