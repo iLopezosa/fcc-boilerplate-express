@@ -19,10 +19,10 @@ app.get('/now', (req, res, next) => {
     req.time = new Date().toString();
     next();
 }, (req, res) => res.json({ time: req.time }));
-// Echo server
+// Echo server route
 app.get('/:word/echo', (req, res, next) => { res.json({ echo: req.params.word }); next();});
-    
-
+// Echo server query
+app.get('/name', (req, res, next) => { res.json({ name: req.query.first + ' ' + req.query.last }); next();});
 
 
 
