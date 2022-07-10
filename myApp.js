@@ -25,8 +25,9 @@ app.get('/now', (req, res, next) => {
 // Echo server route
 app.get('/:word/echo', (req, res, next) => { res.json({ echo: req.params.word }); next();});
 // Echo server query
-const nameRes = (req, res, next) => { res.json({ name: req.query.first + ' ' + req.query.last }); next();}
-app.route('/name').get(nameRes).post(nameRes);
+const getName = (req, res, next) => { res.json({ name: req.query.first + ' ' + req.query.last }); next();}
+const postName = (req, res, next) => { res.json({ name: req.body.first + ' ' + req.body.last }); next();}
+app.route('/name').get(getName).post(postName);
 
 
 
