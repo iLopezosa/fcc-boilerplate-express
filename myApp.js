@@ -1,4 +1,5 @@
 require('dotenv').config();
+let bodyParser = require('body-parser');
 
 let express = require('express');
 let app = express();
@@ -8,6 +9,8 @@ console.log(process.env);
 app.use('/', (req, res, next) => { console.log(`${req.method} ${req.path} - ${req.ip}`); next(); });
 // Static CSS resources
 app.use('/public', express.static(__dirname + '/public'));
+// Body Parser
+app.use(bodyParser.urlencoded({ extended: false }));
 // JSON API
 app.get('/json', (req, res) => res.json(
     process.env.MESSAGE_STYLE === 'uppercase' ? { message: 'HELLO JSON' } : { message: 'Hello json' }
