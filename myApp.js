@@ -3,7 +3,7 @@ require('dotenv').config();
 let express = require('express');
 let app = express();
 
-console.log('log: ' + process.env);
+console.log(process.env);
 // Static CSS resources
 app.use('/public', express.static(__dirname + '/public'));
 // JSON API
